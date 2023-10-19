@@ -1,25 +1,22 @@
 "use client"
-
-import * as React from "react"
-import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-const Sheet = SheetPrimitive.Root
+import * as React from "react";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
 
-const SheetTrigger = SheetPrimitive.Trigger
+const Sheet = SheetPrimitive.Root;
+const SheetTrigger = SheetPrimitive.Trigger;
+const SheetClose = SheetPrimitive.Close;
 
-const SheetClose = SheetPrimitive.Close
+const SheetPortal = (props: SheetPrimitive.DialogPortalProps) => (
+  <SheetPrimitive.Portal {...props} />
+);
 
-const SheetPortal = ({
-  className,
-  ...props
-}: SheetPrimitive.DialogPortalProps) => (
-  <SheetPrimitive.Portal className={cn(className)} {...props} />
-)
-SheetPortal.displayName = SheetPrimitive.Portal.displayName
+SheetPortal.displayName = SheetPrimitive.Portal.displayName;
+
 
 const SheetOverlay = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Overlay>,
@@ -134,8 +131,6 @@ SheetDescription.displayName = SheetPrimitive.Description.displayName
 
 export {
   Sheet,
-  SheetPortal,
-  SheetOverlay,
   SheetTrigger,
   SheetClose,
   SheetContent,

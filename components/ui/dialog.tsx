@@ -1,22 +1,20 @@
 "use client"
 
-import * as React from "react"
-import * as DialogPrimitive from "@radix-ui/react-dialog"
-import { X } from "lucide-react"
-
-import { cn } from "@/lib/utils"
-
-const Dialog = DialogPrimitive.Root
-
-const DialogTrigger = DialogPrimitive.Trigger
+import * as React from "react";
+import { Dialog } from "@radix-ui/react-dialog";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { DialogTrigger } from "@radix-ui/react-dialog";
+import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const DialogPortal = ({
   className,
   ...props
-}: DialogPrimitive.DialogPortalProps) => (
-  <DialogPrimitive.Portal className={cn(className)} {...props} />
-)
-DialogPortal.displayName = DialogPrimitive.Portal.displayName
+}: { className?: string } & DialogPrimitive.DialogPortalProps) => (
+  <DialogPrimitive.Portal {...props} />
+);
+
+DialogPortal.displayName = DialogPrimitive.Portal.displayName;
 
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
